@@ -131,6 +131,11 @@ export default function (pi: ExtensionAPI) {
       floating: true,
     });
     activeWindow = window;
+    window.on("ready", () => {
+      if (activeWindow !== window) return;
+      window.show();
+      window.send(`window.focus(); document.body.setAttribute('tabindex', '-1'); document.body.focus();`);
+    });
 
     const waitingUI = showWaitingUI(ctx);
     const fileMap = new Map(files.map((file) => [file.id, file]));
