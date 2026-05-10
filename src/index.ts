@@ -128,6 +128,7 @@ export default function (pi: ExtensionAPI) {
       width: 1680,
       height: 1020,
       title: "pi review",
+      floating: true,
     });
     activeWindow = window;
 
